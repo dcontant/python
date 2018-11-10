@@ -2,7 +2,7 @@ from itertools import cycle
 
 def out_spiral(n):
     '''
-    create a n*n matrix with outward spiral of integers starting at the center with 1 up to n*n
+    create a n*n matrix with outward clockwise spiral of integers starting at the center with 1 up to n*n
     '''
     if n%2==0:
         return 'ERROR: n must be odd'
