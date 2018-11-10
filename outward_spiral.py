@@ -1,7 +1,12 @@
 from itertools import cycle
 
 def out_spiral(n):
-    global x,y,current, direction, headings,matrix
+    '''
+    create a n*n matrix with outward spiral of integers starting at the center with 1 up to n*n
+    '''
+    if n%2:
+        return 'ERROR: n must be odd'
+    global x, y, direction, matrix
     matrix = [['x']* n for row in range(n)]
     # center of spiral, n must be odd
     x,y  = n//2, n//2
