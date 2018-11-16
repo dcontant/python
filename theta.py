@@ -1,7 +1,7 @@
 from math import atan, pi
 
 def theta(pointA, pointB):
-    # angular distance from x axis when using polar coordinates
+    # angular distance of vector AB from x axis when using polar coordinates
     xA, yA = pointA
     xB, yB = pointB
     delta_y = (yB - yA)
@@ -20,5 +20,13 @@ def theta(pointA, pointB):
     
 theta((1,1), (1,-1))
     
-    
-    
+def theta(pointA, pointB, pointC):
+    #interior angle between vector BA and BC 
+    BA = (pointA[0]-pointB[0], pointA[1]-pointB[1])
+    BC = (pointC[0]-pointB[0], pointC[1]-pointB[1])
+    dot_prod = (BA[0]*BC[0]) + (BA[1]*BC[1])
+    BA_length = sqrt((BA[0]**2 + BA[1]**2))
+    BC_length = sqrt((BC[0]**2 + BC[1]**2))
+    return acos(dot_prod / (BA_length * BC_length))
+
+
