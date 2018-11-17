@@ -21,7 +21,7 @@ def theta(pointA, pointB):
 theta((1,1), (1,-1))
     
 def theta(pointA, pointB, pointC):
-    #interior angle between vector BA and BC 
+    #interior angle between two vector BA and BC , that share the same vertice
     BA = (pointA[0]-pointB[0], pointA[1]-pointB[1])
     BC = (pointC[0]-pointB[0], pointC[1]-pointB[1])
     dot_prod = (BA[0]*BC[0]) + (BA[1]*BC[1])
