@@ -29,7 +29,7 @@ def theta(pointA, pointB, pointC):
         BA_length = sqrt((BA[0]**2 + BA[1]**2))
         BC_length = sqrt((BC[0]**2 + BC[1]**2))
         try:
-            return acos(dot_prod / (BA_length * BC_length))
+            return round(acos(dot_prod / (BA_length * BC_length)),10)
         except ZeroDivisionError: # vector dot product with vector of length = 0
             return 0
         except ValueError: # angle = Pi in certain cases of floating point arithmetic ...
