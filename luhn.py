@@ -16,6 +16,7 @@ def luhn(purported):
         return False
  
 def luhn_checksum(data):
+    '''valid for alpha numeric number'''
     data  = str(data)
     check_digit = data[-1]
     data = ''.join(x for x in data[:-1] if x.isalpha() or x.isdigit())[::-1]
