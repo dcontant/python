@@ -1,5 +1,6 @@
 def luhn(purported):
     '''
+    text and code from Wikipedia
     The Luhn algorithm or Luhn formula, also known as the "modulus 10" or "mod 10" algorithm, is a simple checksum formula 
     used to validate a variety of identification numbers, such as credit card numbers and canadian Social Insurance Numbers
     '''
