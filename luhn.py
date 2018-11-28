@@ -13,4 +13,18 @@ def luhn(purported):
         return ((evens + odds) % 10 == 0)
     except ValueError:  # Raised if an int conversion fails
         return False
-    
+ 
+def luhn_checksum(data):
+    check_digit = data[-1]
+    data = ''.join(x for x in data[:-1] if x.isalpha() or x.isdigit())[::-1]
+    total = 0
+    for i,d in enumerate(data):
+        if i%2 == 0:
+            d = 2 * (ord(d) - 48)
+            if d >= 10:
+                d = int(str(d)[0]) +  int(str(d)[1])
+        else:
+            d = ord(d) - 48
+        total += d
+    return str((10 - total%10)%10) == check_digit
+
