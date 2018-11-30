@@ -1,0 +1,15 @@
+def romans_numerals(n):
+    ''' from  Checkio  '''
+    result = ''
+    for arabic, roman in zip((1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1),
+                             'M     CM   D    CD   C    XC  L   XL  X   IX V  IV I'.split()):
+        result += n // arabic * roman
+        n %= arabic
+    return result
+
+if __name__ == '__main__':
+    assert romans_numerals(6) == 'VI', '6'
+    assert romans_numerals(76) == 'LXXVI', '76'
+    assert romans_numerals(499) == 'CDXCIX', '499'
+    assert romans_numerals(3888) == 'MMMDCCCLXXXVIII', '3888'
+    print('all good')
