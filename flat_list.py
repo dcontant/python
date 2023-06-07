@@ -11,7 +11,7 @@ if __name__ == '__main__':
  
 def flat_list(root_list):
     if type(root_list) is list:
-        return [token for sub_list in root_list for token in flat_list(sub_list)]
+        return [element for sub_list in root_list for element in flat_list(sub_list)]
     else:
         return [root_list]
     
