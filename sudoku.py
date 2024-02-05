@@ -4,7 +4,6 @@ import numpy as np
 
 def possible(row, col, n):
   # return True if n is a valid candidate for cell at grid[row][col]
-  global grid
   for i in range(9):
     if grid[row][i]==n or grid[i][col]==n:
       return False
@@ -18,7 +17,6 @@ def possible(row, col, n):
       
 
 def solve():
-  global grid
   for row in range(9):
     for col in range(9):
       if grid[row][col] == 0:
