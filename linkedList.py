@@ -25,7 +25,9 @@ class LinkedList:
         
     def insertTail(self, val: int) -> None:
         previous = cur = self.head
-        if cur == None: return
+        if cur == None: 
+            self.head = Node(val)
+            return
         while cur:
             previous = cur
             cur = cur.nextNode
@@ -40,9 +42,11 @@ class LinkedList:
         if index == 0:
             if self.head:
                 self.head = self.head.nextNode
+                return True
             else:
                 print("List is empty")
-            return True
+                return False
+            
 
         current = self.head
         prev = None
@@ -111,16 +115,51 @@ print()
 
 testList = LinkedList()
 assert testList.getValues() == []
+
 testList.insertHead(1)
 assert testList.getValues() == [1]
+
 testList.insertTail(2)
 assert testList.getValues() == [1, 2]
+
 testList.insertHead(0)
 assert testList.getValues() == [0, 1, 2]
+
 testList.remove(2)
 assert testList.getValues() == [0, 1]
+
 testList.remove(0)
 assert testList.getValues() == [1]
 print()
 
+#########################################################
+#[empty LinkedList, "insertTail", 1, "insertTail", 2, "get", 1, "remove", 1, "insertTail", 2, "get", 1, "get", 0]
 
+testList = LinkedList()
+assert testList.getValues() == []
+
+testList.insertTail(1)
+assert testList.getValues() == [1]
+
+testList.insertTail(2)
+assert testList.getValues() == [1, 2]
+
+assert testList.get(1) == 2
+assert testList.getValues() == [1, 2]
+
+testList.remove(1)
+assert testList.getValues() == [1]
+
+testList.insertTail(2)
+assert testList.getValues() == [1, 2]
+
+assert testList.get(1) == 2
+
+assert testList.get(0) == 1
+
+##############################################################
+#["remove", 0]
+
+testList = LinkedList()
+testList.remove(0) == False
+print('all tests ok')
