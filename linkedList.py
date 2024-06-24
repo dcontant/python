@@ -5,8 +5,8 @@ class Node:
 
 class LinkedList:
     
-    def __init__(self):
-        self.head = None
+    def __init__(self, head: Node = None) -> None:
+        self.head = head
 
     def get(self, index: int) -> int:
         i = 0
@@ -33,12 +33,21 @@ class LinkedList:
             cur = cur.nextNode
         previous.nextNode = Node(val = val, nextNode = None)
 
-    
+    def NodesFromList(self, values: list[int]) -> None:
+        if not self.head:
+            self.head = Node(values[0]) 
+        cur = self.head
+        while cur.nextNode:
+            cur = cur.nextNode
+        for val in values[1:]:
+            newNode = Node(val)
+            cur.nextNode = newNode
+            cur = newNode
+
     def remove(self, index):
         if index < 0:
             print("Index out of range")
             return False
-
         if index == 0:
             if self.head:
                 self.head = self.head.nextNode
@@ -46,21 +55,16 @@ class LinkedList:
             else:
                 print("List is empty")
                 return False
-            
-
         current = self.head
         prev = None
         count = 0
-
         while current and count != index:
             prev = current
             current = current.nextNode
             count += 1
-
         if current is None:
             print("Index out of range")
             return False
-
         prev.nextNode = current.nextNode
         return True
 
@@ -71,6 +75,16 @@ class LinkedList:
             values.append(cur.val)
             cur = cur.nextNode
         return values
+    
+    def reverseList(self):
+        prev = None
+        current = self.head
+        while current:
+            next_node = current.nextNode
+            current.nextNode = prev
+            prev = current
+            current = next_node
+        self.head = prev
         
 
 #########################################################
